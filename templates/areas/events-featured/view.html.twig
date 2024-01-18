@@ -1,6 +1,28 @@
 <section class="area-files-upload d-block">
+    {% set selectStore = [] %}
+
+    {% for i in 3..10 %}
+        {% set selectStore = selectStore|merge([i]) %}
+    {% endfor %}
+
+    {% set eventsSelect = pimcore_select('events', {
+        store: selectStore,
+        reload: true,
+        width: 70,
+        class: 'align-middle'
+    }) %}
+    {% set id = 'events-list-' ~ uniqid() %}
+    {% set events = eventsSelect.getData()|default(3) %}
+    {% if editmode %}
+        <div class="alert alert-secondary col-xs-12" style="height: 75px">
+            <div class="col-xs-6 d-inline mx-auto">
+                <span class="editmode-label align-middle">How many events you want to show?</span>
+                {{ eventsSelect|raw }}
+            </div>
+        </div>
+    {% endif %}
     <div class="card-deck mb-3 no-gutters">
-        {% for t in 0..2 %}
+        {% for t in 0..(events-1) %}
             <div class="col-md-4">
                 {{ pimcore_renderlet('event' ~ t, {
                     'controller': 'App\\Controller\\DefaultController::eventAction',
