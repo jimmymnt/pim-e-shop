@@ -1,0 +1,13 @@
+<div class="teaser card custom-standard-card mb-4 shadow-sm">
+    <div class="text-decoration-none text-dark">
+        {% if event.mainImage %}
+            {{ pimcore_image_thumbnail_html(event.mainImage, 'standardTeaser', { imgAttributes: {class: 'img-fluid'} }) }}
+        {% endif %}
+        <div class="card-body">
+            <h4 class="card-title pricing-card-title text-uppercase">{{ event.title }}</h4>
+            <p class="card-text">
+                {{ event.description | striptags | slice(0, 150) ~ '...' }}
+            </p>
+        </div>
+    </div>
+</div>
