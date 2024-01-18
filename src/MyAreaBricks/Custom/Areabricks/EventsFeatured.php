@@ -13,6 +13,6 @@ class EventsFeatured extends AbstractTemplateAreabrick
      */
     public function getName(): string
     {
-        return 'Events Features';
+        return 'Events Featured';
     }
 }
