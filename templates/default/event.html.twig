@@ -13,9 +13,10 @@
                 <span><strong>Address:</strong></span> {{ event.locationAddress }}
             </p>
             <hr>
-            <p>
-                <span><strong>Time:</strong></span> {{ event.fromDate|date('m/d/Y') }} - {{ event.toDate|date('m/d/Y') }}
-            </p>
+            <span><strong>Time:</strong></span> {{ event.fromDate|date('F jS Y') }} - {{ event.toDate|date('F jS Y') }}
+        </div>
+        <div class="card-footer">
+            <a href="#" class="btn btn-primary">{{ 'general.details' | trans }}</a>
         </div>
     </div>
 </div>

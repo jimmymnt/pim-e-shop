@@ -64,7 +64,6 @@ class DefaultController extends BaseController
     {
         if ($request->get('type') == 'object') {
             if ($event = Event::getById($request->get('id'))) {
-                dump($event);
                 return $this->render('default/event.html.twig', ['event' => $event]);
             }
         }
