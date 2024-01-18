@@ -15,7 +15,6 @@
 
 namespace App\Controller;
 
-use App\Form\UploadFileFormType;
 use Pimcore\Model\Asset;
 use Pimcore\Model\DataObject\Event;
 use Symfony\Bridge\Twig\Attribute\Template;
@@ -23,8 +22,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class DefaultController extends BaseController
 {
@@ -65,8 +62,9 @@ class DefaultController extends BaseController
 
     public function eventAction(Request $request): Response
     {
-        if($request->get('type') == 'object') {
-            if($event = Event::getById($request->get('id'))) {
+        if ($request->get('type') == 'object') {
+            if ($event = Event::getById($request->get('id'))) {
+                dump($event);
                 return $this->render('default/event.html.twig', ['event' => $event]);
             }
         }

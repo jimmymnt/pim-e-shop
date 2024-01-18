@@ -3,10 +3,18 @@
         {% if event.mainImage %}
             {{ pimcore_image_thumbnail_html(event.mainImage, 'standardTeaser', { imgAttributes: {class: 'img-fluid'} }) }}
         {% endif %}
-        <div class="card-body">
-            <h4 class="card-title pricing-card-title text-uppercase">{{ event.title }}</h4>
+        <div class="card-body text-left">
+            <h4 class="card-title pricing-card-title text-uppercase text-left">{{ event.title }}</h4>
             <p class="card-text">
                 {{ event.description | striptags | slice(0, 150) ~ '...' }}
+            </p>
+            <hr>
+            <p>
+                <span><strong>Address:</strong></span> {{ event.locationAddress }}
+            </p>
+            <hr>
+            <p>
+                <span><strong>Time:</strong></span> {{ event.fromDate|date('m/d/Y') }} - {{ event.toDate|date('m/d/Y') }}
             </p>
         </div>
     </div>
