@@ -7,18 +7,18 @@
     <div>
         <h2>IFrame</h2>
         <div>
-            URL: {{ urlField }}
+            URL: {{ pimcore_input('iframe_url') }}
         </div>
         <br/>
         <b>Advanced Configuration</b>
         <div>
-            Width: {{ widthField }}px (default: 100%)
+            Width: {{ pimcore_numeric('iframe_width') }}px (default: 100%)
         </div>
         <div>
-            Height: {{ heightField }}px (default: 400px)
+            Height: {{ pimcore_numeric('iframe_height') }}px (default: 400px)
         </div>
         <div>
-            Transparent: {{ transparentField }} (default: false)
+            Transparent: {{ pimcore_checkbox('iframe_transparent') }} (default: false)
         </div>
     </div>
 {% else %}
