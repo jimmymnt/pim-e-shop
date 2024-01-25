@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\UploadFileFormType;
 use Pimcore\Model\Asset;
+use Pimcore\Model\DataObject\JPost;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
