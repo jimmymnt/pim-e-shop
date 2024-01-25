@@ -55,11 +55,6 @@ class FileUploadController extends BaseController
             $filename = $this->upload($file, $filenameCustom);
         }
 
-        // Test
-        $sample = JPost::getById(1192);
-        dump($sample);
-        dd($sample->getTitle());
-
         return $this->render('default/files.upload.html.twig', [
             'filename' => $filename,
             'form' => $form->createView(),
