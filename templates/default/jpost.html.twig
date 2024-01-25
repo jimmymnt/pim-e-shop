@@ -1,0 +1,17 @@
+<div class="teaser card custom-standard-card mb-4 shadow-sm">
+    <div class="text-decoration-none text-dark">
+        {% if post.mainImage %}
+            {{ pimcore_image_thumbnail_html(post.mainImage, 'standardTeaser', { imgAttributes: {class: 'img-fluid'} }) }}
+        {% endif %}
+        <div class="card-body text-left">
+            <h4 class="card-title pricing-card-title text-uppercase text-left">{{ post.title }}</h4>
+            <p class="card-text">
+                {{ post.shortDescription | striptags | slice(0, 150) ~ '...' }}
+            </p>
+            <hr>
+        </div>
+        <div class="card-footer">
+            <a href="#" class="btn btn-primary">{{ 'general.details' | trans }}</a>
+        </div>
+    </div>
+</div>
