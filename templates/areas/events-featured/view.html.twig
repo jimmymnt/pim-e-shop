@@ -20,16 +20,17 @@
                 {{ eventsSelect|raw }}
             </div>
         </div>
+    {% else %}
+        <div class="card-deck mb-3 no-gutters">
+            {% for t in 0..(events-1) %}
+                <div class="col-md-4">
+                    {{ pimcore_renderlet('event' ~ t, {
+                        'controller': 'App\\Controller\\DefaultController::eventAction',
+                        'height': 400,
+                        'title': 'Drag an event object here'
+                    }) }}
+                </div>
+            {% endfor %}
+        </div>
     {% endif %}
-    <div class="card-deck mb-3 no-gutters">
-        {% for t in 0..(events-1) %}
-            <div class="col-md-4">
-                {{ pimcore_renderlet('event' ~ t, {
-                    'controller': 'App\\Controller\\DefaultController::eventAction',
-                    'height': 400,
-                    'title': 'Drag an event object here'
-                }) }}
-            </div>
-        {% endfor %}
-    </div>
 </section>

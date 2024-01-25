@@ -17,6 +17,7 @@ namespace App\Controller;
 
 use Pimcore\Model\Asset;
 use Pimcore\Model\DataObject\Event;
+use Pimcore\Model\DataObject\JPost;
 use Symfony\Bridge\Twig\Attribute\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -65,10 +66,11 @@ class DefaultController extends BaseController
         if ($request->get('type') == 'object') {
             if ($event = Event::getById($request->get('id'))) {
                 return $this->render('default/event.html.twig', ['event' => $event]);
+            } else if ($post = JPost::getById($request->get('id'))) {
+                return $this->render('default/jpost.html.twig', ['post' => $post]);
             }
         }
 
         throw new NotFoundHttpException('Event not found.');
-
     }
 }

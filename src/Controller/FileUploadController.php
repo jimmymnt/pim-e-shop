@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\UploadFileFormType;
 use Pimcore\Model\Asset;
+use Pimcore\Model\DataObject\JPost;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -53,6 +54,11 @@ class FileUploadController extends BaseController
             $filenameCustom = $request->get('filename_custom', null);
             $filename = $this->upload($file, $filenameCustom);
         }
+
+        // Test
+        $sample = JPost::getById(1192);
+        dump($sample);
+        dd($sample->getTitle());
 
         return $this->render('default/files.upload.html.twig', [
             'filename' => $filename,
