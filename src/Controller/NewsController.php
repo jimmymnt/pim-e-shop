@@ -67,7 +67,6 @@ class NewsController extends BaseController
         $breadcrumbHelperService->enrichNewsPage($news);
 
         $placeholderHelper('canonical')->set($newsLinkGenerator->generate($news, ['document' => $this->document->getProperty(self::NEWS_DEFAULT_DOCUMENT_PROPERTY_NAME)]));
-        dd($news->get('content'));
 
         return $this->render('news/detail.html.twig', [
             'news' => $news
