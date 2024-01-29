@@ -47,7 +47,6 @@ services:
         # if you need to do this, you can override this setting on individual services
         public: false
 
-
     # ---------------------------------------------------------
     # Register all controllers of App as services
     # ---------------------------------------------------------
@@ -56,8 +55,6 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
-
-
     # ---------------------------------------------------------
     # Register all commands of App as commands
     # ---------------------------------------------------------
@@ -65,12 +62,11 @@ services:
         resource: '../src/Command'
         tags: ['console.command']
 
-
     # ---------------------------------------------------------
     # Forms
     # ---------------------------------------------------------
     App\Form\DeliveryAddressFormType: ~
-#    App\Form\UploadFileFormType: ~
+    App\Form\UploadFileFormType: ~
     App\Form\LoginFormType: ~
     App\Form\RegistrationFormType: ~
     App\Form\RegistrationFormHandler: ~
@@ -143,6 +139,9 @@ services:
     App\Twig\Extension\NewsExtension:
         tags: ['twig.extension']
 
+    App\Twig\Extension\BlogExtension:
+        tags: ['twig.extension']
+
     App\Twig\Extension\PrintCatalogExtension:
         tags: ['twig.extension']
 
@@ -154,6 +153,9 @@ services:
         public: true
 
     App\Website\LinkGenerator\ProductLinkGenerator:
+        public: true
+
+    App\Website\LinkGenerator\BlogLinkGenerator:
         public: true
 
     App\Website\LinkGenerator\NewsLinkGenerator:
