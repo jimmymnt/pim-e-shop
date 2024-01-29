@@ -1,0 +1,23 @@
+{# @var news \Pimcore\Model\DataObject\News #}
+
+{% extends 'layouts/layout.html.twig' %}
+
+
+{% block content %}
+
+    <div id="main-content" class="main-content mb-5">
+
+        <div class="page-header">
+            <h1>{{ post.title }}</h1>
+        </div>
+
+{#        <div class="text-muted mb-3">{{ post.date | date('Y-m-d h:i A') }}</div>#}
+
+        {% if post.content %}
+            {{ post.content | raw }}
+        {% endif %}
+
+
+    </div>
+
+{% endblock %}

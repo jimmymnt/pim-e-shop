@@ -3,24 +3,21 @@
 /**
  * Inheritance: no
  * Variants: no
- * Title: JPost title
- * JPost description
+ * Title: Blog Category
  *
  * Fields Summary:
  * - localizedfields [localizedfields]
- * -- title [input]
- * -- shortDescription [wysiwyg]
- * -- mainImage [image]
+ * -- name [input]
  */
 
 return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'dao' => NULL,
-   'id' => '6',
-   'name' => 'JPost',
-   'title' => 'JPost title',
-   'description' => 'JPost description',
+   'id' => '7',
+   'name' => 'blogCategory',
+   'title' => 'Blog Category',
+   'description' => '',
    'creationDate' => NULL,
-   'modificationDate' => 1706165252,
+   'modificationDate' => 1706174604,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -86,12 +83,12 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
             array (
               0 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-                 'name' => 'title',
-                 'title' => 'Title',
+                 'name' => 'name',
+                 'title' => 'Name',
                  'tooltip' => '',
                  'mandatory' => true,
                  'noteditable' => false,
-                 'index' => true,
+                 'index' => false,
                  'locked' => false,
                  'style' => '',
                  'permissions' => NULL,
@@ -113,54 +110,6 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'showCharCount' => false,
                  'width' => '',
                  'defaultValueGenerator' => '',
-              )),
-              1 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\Wysiwyg::__set_state(array(
-                 'name' => 'shortDescription',
-                 'title' => 'Short Description',
-                 'tooltip' => '',
-                 'mandatory' => false,
-                 'noteditable' => false,
-                 'index' => false,
-                 'locked' => false,
-                 'style' => '',
-                 'permissions' => NULL,
-                 'fieldtype' => '',
-                 'relationType' => false,
-                 'invisible' => false,
-                 'visibleGridView' => false,
-                 'visibleSearch' => false,
-                 'blockedVarsForExport' => 
-                array (
-                ),
-                 'toolbarConfig' => '',
-                 'excludeFromSearchIndex' => false,
-                 'maxCharacters' => '',
-                 'height' => '',
-                 'width' => '',
-              )),
-              2 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\Image::__set_state(array(
-                 'name' => 'mainImage',
-                 'title' => 'Main Image',
-                 'tooltip' => 'This is Main image of JPost',
-                 'mandatory' => true,
-                 'noteditable' => false,
-                 'index' => false,
-                 'locked' => false,
-                 'style' => '',
-                 'permissions' => NULL,
-                 'fieldtype' => '',
-                 'relationType' => false,
-                 'invisible' => false,
-                 'visibleGridView' => false,
-                 'visibleSearch' => false,
-                 'blockedVarsForExport' => 
-                array (
-                ),
-                 'uploadPath' => '',
-                 'width' => '',
-                 'height' => '',
               )),
             ),
              'region' => NULL,

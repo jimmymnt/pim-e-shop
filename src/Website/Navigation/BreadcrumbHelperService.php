@@ -19,6 +19,7 @@ use App\Model\Product\Category;
 use App\Website\LinkGenerator\AbstractProductLinkGenerator;
 use App\Website\LinkGenerator\CategoryLinkGenerator;
 use Pimcore\Model\DataObject\AbstractObject;
+use Pimcore\Model\DataObject\BlogArticle;
 use Pimcore\Model\DataObject\News;
 use Pimcore\Model\Document;
 use Pimcore\Translation\Translator;
@@ -180,6 +181,16 @@ class BreadcrumbHelperService
             'parentId' => $document->getId(),
             'id' => 'search-result',
             'label' => $label
+        ]);
+    }
+
+    public function enrichBlogPage(BlogArticle $post)
+    {
+        $document = $this->getCurrentDocument();
+        $this->placeholderHelper->__invoke('addBreadcrumb')->append([
+            'parentId' => $document->getId(),
+            'id' => 'post-' . $post->getId(),
+            'label' => $post->getTitle(),
         ]);
     }
 }
