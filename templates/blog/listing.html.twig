@@ -25,7 +25,7 @@
                     {# @var posts \Pimcore\Model\DataObject\BlogArticle #}
                     {% set detailLink = app_post_detail_link(post) %}
 
-                    <li class="media my-3">
+                    <li class="media my-3 border-bottom my-2 py-2">
                         <div class="media-body">
                             <h5 class="mt-0">
                                 <a href="{{ detailLink }}" class="text-decoration-none text-dark">
@@ -43,6 +43,4 @@
             {% include 'includes/pagination.html.twig' %}
         </div>
     </div>
-
-
 {% endblock %}

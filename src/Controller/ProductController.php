@@ -9,8 +9,8 @@
  * Full copyright and license information is available in
  * LICENSE.md which is distributed with this source code.
  *
- *  @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
- *  @license    http://www.pimcore.org/license     GPLv3 and PEL
+ * @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)
+ * @license    http://www.pimcore.org/license     GPLv3 and PEL
  */
 
 namespace App\Controller;
@@ -72,18 +72,23 @@ class ProductController extends BaseController
      * @throws \Exception
      */
     public function detailAction(
-        Request $request,
-        HeadTitle $headTitleHelper,
-        BreadcrumbHelperService $breadcrumbHelperService,
-        Factory $ecommerceFactory,
+        Request                      $request,
+        HeadTitle                    $headTitleHelper,
+        BreadcrumbHelperService      $breadcrumbHelperService,
+        Factory                      $ecommerceFactory,
         SegmentTrackingHelperService $segmentTrackingHelperService,
-        Concrete $product,
-        ProductLinkGenerator $productLinkGenerator
-    ) {
+        Concrete                     $product,
+        ProductLinkGenerator         $productLinkGenerator
+    )
+    {
         if (!(
-                $product && ($product->isPublished() && (($product instanceof Car && $product->getObjectType() == Car::OBJECT_TYPE_ACTUAL_CAR) || $product instanceof AccessoryPart) || $this->verifyPreviewRequest($request, $product))
+            $product->isPublished()
+            && (
+                ($product instanceof Car && $product->getObjectType() == Car::OBJECT_TYPE_ACTUAL_CAR)
+                || $product instanceof AccessoryPart
             )
-        ) {
+            || $this->verifyPreviewRequest($request, $product)
+        )) {
             throw new NotFoundHttpException('Product not found.');
         }
 
@@ -216,10 +221,10 @@ class ProductController extends BaseController
     public function productTeaserAction(Request $request, Factory $ecommerceFactory): Response
     {
         $paramsBag = [];
-        $type = $request->attributes->get('type')?:$request->query->get('type');
+        $type = $request->attributes->get('type') ?: $request->query->get('type');
         if ($type === 'object') {
             AbstractObject::setGetInheritedValues(true);
-            $id = $request->attributes->getInt('id')?:$request->query->getInt('id');
+            $id = $request->attributes->getInt('id') ?: $request->query->getInt('id');
             $product = AbstractProduct::getById($id);
             if ($product instanceof Car && $product->getObjectType() === Car::OBJECT_TYPE_VIRTUAL_CAR) {
                 throw new \Exception('Virtual products are not allowed in product teasers.');
@@ -243,7 +248,7 @@ class ProductController extends BaseController
     {
         $params = $request->query->all();
 
-        $params['category'] = Category::getById((int) ($params['category'] ?? -1));
+        $params['category'] = Category::getById((int)($params['category'] ?? -1));
 
         $indexService = $ecommerceFactory->getIndexService();
         $productListing = $indexService->getProductListForCurrentTenant();

@@ -33,7 +33,7 @@ class BlogLinkGenerator implements LinkGeneratorInterface
     protected $localeService;
 
     /**
-     * NewsLinkGenerator constructor.
+     * BlogLinkGenerator constructor.
      *
      * @param DocumentResolver $documentResolver
      * @param RequestStack $requestStack

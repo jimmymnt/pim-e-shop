@@ -38,7 +38,9 @@ class PimcoreAdminListener
             array_merge(
                 $event->getPaths(),
                 [
-                    '/static/js/startup.js'
+                    '/static/js/startup.js',
+                    '/static/js/plugin.js',
+                    '/static/js/settings.js',
                 ]
             )
         );
