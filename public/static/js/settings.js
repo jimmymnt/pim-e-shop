@@ -18,6 +18,7 @@ pimcore.plugin.CustomMenu.settings = Class.create({
 
     getData: function () {
         console.log('Getting the data');
+        //
         // Ext.Ajax.request({
         //     url: '/admin/custom-menu/get-custommenu-settings-attributes',
         //     success: function (response) {
